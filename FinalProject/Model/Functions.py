@@ -57,6 +57,7 @@ def Configs(TM):
     Readhead = 1
     CurrentState = Start 
 
+    print("Steps:")
     #in the number of steps..
     for i in range(Steps):
         #if tape is at the end, just append empty space at the corresponding index
@@ -64,8 +65,9 @@ def Configs(TM):
             InitialConfig = InitialConfig + ' '
 
         #Debugging and printing purpose.
+        # print("\t"+StringWorkingString(InitialConfig,Readhead) + "\t\tState:"+str(CurrentState)+"\t\tReadhead:"+str(Readhead))
         #I will update tomorrow to put the "currently working char"
-        print(StringWorkingString(InitialConfig,Readhead) + "\t\tState:"+str(CurrentState)+"\t\tReadhead:"+str(Readhead))
+        print("\t"+str(i)+".\t"+StringWorkingString(InitialConfig,Readhead) + "\t\tState:"+str(CurrentState))
 
         
         #take the currently working character
