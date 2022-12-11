@@ -51,9 +51,11 @@ def TuringMachineTemplate():
         else:
             Trans[trans[0]].append(trans[1:])
     
+    InitialConfig = ""
+
     #Return Everything into a list.
     #Might change it to object oriented later.
-    return [States, Inputs, TapeSyms, Blank,Leftend, Trans, Start, Final]
+    return [States, Inputs, TapeSyms, Blank,Leftend, TransInput, Trans, Start, Final, InitialConfig]
 """
 
 
@@ -87,12 +89,12 @@ def TM1():
             [  2, ':',  '/', ':', 20 ],
 
             [  3, ' ',  '/', ' ', 20 ],
-            [  3, 'a', '\\', '*', 20 ],
+            [  3, 'a', '\\', '*', 4 ],
 
-            [  4, 'a', '\\', 'a', 20 ],
+            [  4, 'a', '\\', 'a', 4 ],
             [  4, ':', '\\', ':',  5 ],
 
-            [  5, ':',  '/', ':', 20 ],
+            [  5, 'a',  '\\', 'a', 5 ],
             [  5, '*',  '/', 'a',  6 ],
 
             [  6, ':',  '/', ':',  7 ],
@@ -140,6 +142,9 @@ def TM1():
         else:
             Trans[trans[0]].append(trans[1:])
     
+    InitialConfig = "!"
+    Readhead = 1
+
     #Return Everything into a list.
     #Might change it to object oriented later.
-    return [States, Inputs, TapeSyms, Blank,Leftend, Trans, Start, Final]
+    return [States, Inputs, TapeSyms, Blank,Leftend, TransInput, Trans, Start, Final, InitialConfig, Readhead]

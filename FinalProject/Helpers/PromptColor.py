@@ -10,3 +10,6 @@ def StringInBlue(string):
 #Print in Red in terminal
 def StringInRed(string):
     return ('%s'+ string +'%s') %('\033[31m','\033[0m')
+
+def StringUnderline(string):
+    return ('%s'+ string +'%s') %('\033[4m','\033[4m')
