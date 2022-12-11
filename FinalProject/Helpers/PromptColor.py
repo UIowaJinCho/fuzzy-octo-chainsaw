@@ -11,5 +11,6 @@ def StringInBlue(string):
 def StringInRed(string):
     return ('%s'+ string +'%s') %('\033[31m','\033[0m')
 
-def StringUnderline(string):
-    return ('%s'+ string +'%s') %('\033[4m','\033[4m')
+#Underline for the currently working character(will be used later)
+def StringWorkingString(string,i):
+    return (string[0:i]+'%s'+ string[i] +'%s'+string[i+1:]) %('\033[4m','\033[0m')
