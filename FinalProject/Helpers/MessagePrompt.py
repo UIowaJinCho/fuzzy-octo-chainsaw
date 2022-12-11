@@ -27,7 +27,7 @@ def PromptInputMessage(question,list):
     except Exception:
         raise Exception(StringInRed("Invalid selection."))
 
-def PromptFilterInputMessage(question,list):
+def PromptTuringMachineInputMessage(question,list):
     
     #((\d+,)+\d+)|((\d+ )+\d+)| for commas and white spaces (1 2 3 or 1,2,3 runs for 1 2 and 3)
     #\d+-\d+ for multiple selection, e.g. (1-2 runs for 1 to 2)
