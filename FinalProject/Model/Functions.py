@@ -59,6 +59,7 @@ def Configs(TM):
 
     print("Steps:")
     #in the number of steps..
+    import pdb;pdb.set_trace()
     for i in range(Steps):
         #if tape is at the end, just append empty space at the corresponding index
         if(Readhead>=len(InitialConfig)):
