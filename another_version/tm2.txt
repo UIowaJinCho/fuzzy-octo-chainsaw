@@ -1,0 +1,1 @@
+TM recognizes language { ww | w in {a,b}* }, runs with input string: aaTrue

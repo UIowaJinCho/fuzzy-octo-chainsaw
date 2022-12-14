@@ -252,7 +252,7 @@ def configsLazy(tm: TM, input_str: List[Input]) -> Generator:
         return arr[1:] + newConfigs(tm, arr[0])
     return iterate(addNew, [initialConfig(tm, input_str)])
 
-def configs_infinite(tm: TM, step: int, input_str: List[Input]) -> History:
+def configs(tm: TM, step: int, input_str: List[Input]) -> History:
     '''
     Takes a TM, a number of steps to run the simulation, and an input string, 
     and returns the History representing running the given nondeterministic TM 
