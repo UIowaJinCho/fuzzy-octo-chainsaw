@@ -17,13 +17,13 @@ trans = [
 
 ww = TM([i for i in range(1,3)], "ab", "ab*! ", ' ', '!', trans, 1, [3])
 
-inputstr = 'ab'
+inputstr = 'aa'
 acceptTest = accepts(ww, inputstr)
 configText = configs(ww, 100, inputstr)
 print(f"accepts(ww, '{inputstr}')= ", acceptTest)
 
 with open('tm4.txt', 'wt') as f:
     f.write(f'TM recognizes language ab, runs with input string: {inputstr}\n')
-    f.write(f'Accepted:'+str(acceptTest))    
-    f.write(f'\nHistory:\n'+str(configText))
-
+    f.write('TM Information:\n' + str(ww))
+    f.write(f'\n\nAccepted the input string: {acceptTest}')    
+    f.write(f'\n\nHistory:\n'+str(configText))
