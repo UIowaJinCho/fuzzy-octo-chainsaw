@@ -11,10 +11,11 @@ Sources:
 	MonoTM.py		 
 
 Tests: 
-    We test our implementation with 4 TMs, for each TM, we tested with one input string, we save the following information to the corresponding result file:
+    We test our implementation with 3 TMs (`test_tm1.py`, `test_tm2.py`, `test_tm3.py`), for each TM, we tested with one input string, we save the following information to the corresponding result file:
     - convert TM to string
     - show if the TM accepts the input string or not
     - show the running history (also included showing the config)
+    We also add an simple TM (`test_tm4.py`) with an infinite run, we prevent the infinite runs by setting a large predefined max running steps (5000)
     
 Implementation: 
     - We do it in Object-Oriented Programming style, with corresponding class defintions for Turing Machine, Transition, Config, History
