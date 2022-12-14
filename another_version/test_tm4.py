@@ -1,6 +1,6 @@
 from MonoTM import *
 # ----------------------------------------------------------------------
-# -- recognize language { ww | w in {a,b}* }
+# -- recognize language ab
 
 
 def checkABLeft(p, q): 
@@ -15,7 +15,7 @@ trans = [
     *goRight(2,'b', 'a', 3)
 ]
 
-ww = TM([i for i in range(1,3)], "ab", "a*! ", ' ', '!', trans, 1, [3])
+ww = TM([i for i in range(1,3)], "ab", "ab*! ", ' ', '!', trans, 1, [3])
 
 inputstr = 'ab'
 acceptTest = accepts(ww, inputstr)
