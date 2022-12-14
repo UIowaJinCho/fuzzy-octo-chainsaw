@@ -63,5 +63,7 @@ configText = configs(hw4, 50, inputstr)
 
 with open('tm3.txt', 'wt') as f:
     f.write(f'TM recognizes language {{ w0:w1:...:wk| wi \in {{0,1}}*, exist wi = w0 }}, runs with input string: {inputstr}\n')
-    f.write(f'Accepted:'+str(acceptTest))    
-    f.write(f'\nHistory:\n'+str(configText))
+    f.write('TM Information:\n' + str(hw4))
+    f.write(f'\n\nAccepted the input string: {acceptTest}')    
+    f.write(f'\n\nHistory:\n'+str(configText))
+

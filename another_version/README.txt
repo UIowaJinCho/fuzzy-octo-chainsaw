@@ -11,11 +11,20 @@ Sources:
 	MonoTM.py		 
 
 Tests: 
-    MonoTmExample.py 
+    We test our implementation with 4 TMs, for each TM, we tested with one input string, we save the following information to the corresponding result file:
+    - convert TM to string
+    - show if the TM accepts the input string or not
+    - show the running history (also included showing the config)
     
 Implementation: 
-    #TODO
- 
+    - We do it in Object-Oriented Programming style, with corresponding class defintions for Turing Machine, Transition, Config, History
+    - We organize the code as in haskell code with similar function names
+    - We added comments for corresponding functions
+    - Required functions to convert object to string are implemented in `__repr__` in corresponding classes, so we can just call `print(obj)` or `str(obj)` to print the corresponding objects
+
 
 Status: 
 	Fully functional nondeterministic Turing Machine simulator. 
+
+Course evaluation:
+    we evaluated the course.

@@ -1,5 +1,20 @@
 TM recognizes language { ww | w in {a,b}* }, runs with input string: aa
-Accepted:False
+TM Information:
+States: [1, 2]
+Alphabet: ab
+Tape symbols: a*! 
+Blank:  
+Leftend: !
+Transitions:
+  1 === 'a' / 'a' R ===> 2
+  2 === 'a' / 'a' L ===> 1
+  2 === 'b' / 'a' R ===> 3
+
+Start state: 1
+Final states: [3]
+
+Accepted the input string: False
+
 History:
 [[1: "!a" "a"]]
 [[2: "!aa" ""]]

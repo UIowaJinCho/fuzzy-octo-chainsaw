@@ -33,6 +33,6 @@ configText = configs(tripletm, 50, inputstr)
 
 with open('tm1.txt', 'wt') as f:
     f.write(f'TM recognizes {{a^n b^n c^n | n in Nat }}, runs with input string: {inputstr}\n')
-    f.write(f'Accepted:'+str(acceptTest))    
-    f.write(f'\nHistory:\n'+str(configText))
-
+    f.write('TM Information:\n' + str(tripletm))
+    f.write(f'\n\nAccepted the input string: {acceptTest}')    
+    f.write(f'\n\nHistory:\n'+str(configText))

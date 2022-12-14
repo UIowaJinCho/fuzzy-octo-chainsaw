@@ -69,6 +69,9 @@ class TM:
         "Final states: " + str(self.final)
         return res
 
+def showTM(tm):
+    print(tm)
+
 # ----------------------------------------------------------------------
 # -- Config & History
 # ----------------------------------------------------------------------
@@ -139,7 +142,6 @@ class History:
 
     def __getitem__(self, i):
         return self.openHistory[i]
-
 
 def showConfig(config: Config) -> str:
     print(config)
@@ -296,24 +298,17 @@ def configs_finite(tm: TM, step: int, input_str: List[Input]) -> History:
 # ----------------------------------------------------------------------
 # -- accepts
 # ----------------------------------------------------------------------
-def accepts(tm: TM, input_str: List[Input], max_step=5000) -> bool:
-    '''
-    takes a TM and an input string, tries to return the first 
-    Config it finds whose state is a final state.
-
-    max_step prevents infinite loop
-    '''
+def accepting(tm: TM, input_str: List[Input], max_step=5000):
     final_states = set(tm.final)
 
     def acceptingConfig(configs: Configs):
-        if len(configs) == 0: return False
-
-        config = configs[0] 
+        if len(configs) == 0: 
+            return False
+        config = configs[0]
         if config.state in final_states:
             return True
-        
         return False
-
+    
     config_generator = configsLazy(tm, input_str)
     
     history = []
@@ -326,8 +321,20 @@ def accepts(tm: TM, input_str: List[Input], max_step=5000) -> bool:
     
     for configs in history:
         if acceptingConfig(configs):
-            return True
+            return configs
     
+    return None
+
+def accepts(tm: TM, input_str: List[Input]) -> bool:
+    '''
+    takes a TM and an input string, tries to return the first 
+    Config it finds whose state is a final state.
+
+    max_step prevents infinite loop
+    '''
+    if accepting(tm, input_str) is not None:
+        return True
+
     return False
 
 
