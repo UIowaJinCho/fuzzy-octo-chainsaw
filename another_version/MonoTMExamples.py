@@ -1,4 +1,28 @@
 from MonoTM import *
+
+
+
+# ----------------------------------------------------------------------
+# -- recognize {a^n b^n c^n | n in Nat }
+
+tripletm_trans = [
+                    *checkRight(1, ' ', 6),
+                    *loopRight(1, "*"), 
+                    *goRight(1, 'a', '*', 2),
+                    *loopRight(2, "a*"),
+                    *goRight(2, 'b', '*', 3),
+                    *loopRight(3, "b*"),
+                    *goRight(3, 'c', '*', 4),
+                    *loopRight(4, "c*"),
+                    *checkLeft(4, ' ', 5),
+                    *loopLeft(5, "abc*"),
+                    *checkRight(5, '!', 1) 
+                ]
+tripletm = TM([i for i in range(1,7)],
+                "acb", "abc*!", ' ', '!', tripletm_trans, 1, [6])
+
+test = configs_finite(tripletm, 35, 'aabbcc')
+print("configs_finite(tripletm, 35, 'aabbcc')= ", test)
 # ----------------------------------------------------------------------
 # -- recognize language { ww | w in {a,b}* }
 
@@ -94,13 +118,65 @@ trans = [
 
 ww = TM([i for i in range(1,13)], "abc", "abc*! ", ' ', '!', trans, 1, [7])
 
-inputstr = 'aa'
-acceptTest = accepts(ww, inputstr)
-configText = configs(ww, 20, inputstr)
-print(f"accepts(ww, '{inputstr}')=\n", acceptTest)
+test2 = accepts(ww, 'aa')
+print("accepts(ww, 'aa')=", test2)
 
-with open('tm2.txt', 'wt') as f:
-    f.write(f'TM recognizes language {{ ww | w in {{a,b}}* }}, runs with input string: {inputstr}\n')
-    f.write(f'Accepted:'+str(acceptTest))    
-    f.write(f'\nHistory:\n'+str(configText))
+# ----------------------------------------------------------------------
+# -- HW4: recognize { w0:w1:...:wk| wi \in {0,1}*, exist wi = w0 }
 
+hw4_trans = [
+    *goRight(1, 'a', '*', 2), 
+    *checkRight(2, 'a', 15),
+    *checkRight(2, ':', 20),
+
+    *checkRight(3, ' ', 20),
+    *goLeft(3, 'a', '*', 4),
+
+    *loopLeft(4, 'a'),
+    *checkLeft(4, ':', 5),
+
+    *checkLeft(5, 'a', 5),
+    *goRight(5, '*', 'a',  6),
+
+    *checkRight(6, ':',  7),
+    *goRight(6, 'a', '*', 12),
+
+    *loopRight(7, 'a'),
+    *checkRight(7, '*',  8),
+
+    *checkRight(8, ' ', 20),
+    *checkLeft(8, 'a',  9),
+
+    *checkLeft(9, '*', 10),
+
+    *checkLeft(10, 'a', 10),
+    *checkLeft(10, ':', 11),
+
+    *checkLeft(11, 'a', 11),
+    *checkRight(11, '!', 6),
+
+    *checkRight(12, 'a', 12),
+    *checkRight(12, ':', 13),
+
+    *checkRight(13, 'a', 13),
+    *goRight(13, '*', 'a', 14),
+
+    *goLeft(14, 'a' , '*',  4),
+
+    *loopRight(15, 'a'),
+    *checkRight(15, ':',  3)
+]
+
+hw4 = TM(
+    [i for i in range(1, 21)],
+    "ab:* ",
+    "ab:* !",
+    ' ',
+    '!', 
+    hw4_trans, 
+    1,
+    [20]
+)
+
+test = configs_infinite(hw4, 20, 'aa:aa')
+import pdb;pdb.set_trace()

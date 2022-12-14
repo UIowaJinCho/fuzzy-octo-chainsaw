@@ -1,4 +1,7 @@
-TM recognizes {a^n b^n c^n | n in Nat }, runs with input string: aabbcc[[1: "!a" "abbcc"]]
+TM recognizes {a^n b^n c^n | n in Nat }, runs with input string: aabbcc
+Accepted:True
+History:
+[[1: "!a" "abbcc"]]
 [[2: "!*a" "bbcc"]]
 [[2: "!*ab" "bcc"]]
 [[3: "!*a*b" "cc"]]
@@ -33,3 +36,18 @@ TM recognizes {a^n b^n c^n | n in Nat }, runs with input string: aabbcc[[1: "!a"
 [[1: "!*****" "*"]]
 [[1: "!******" ""]]
 [[1: "!****** " ""]]
+[[6: "!******  " ""]]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]

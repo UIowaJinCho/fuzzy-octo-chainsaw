@@ -1,1 +1,23 @@
-TM recognizes language { ww | w in {a,b}* }, runs with input string: aaTrue
+TM recognizes language { ww | w in {a,b}* }, runs with input string: aa
+Accepted:True
+History:
+[[1: "!a" "a"]]
+[[1: "!aa" ""], [2: "!" "*a"]]
+[[2: "!" "*a"], [1: "!aa " ""], [2: "!a" "*"]]
+[[1: "!aa " ""], [2: "!a" "*"], [12: "!*" "a"]]
+[[2: "!a" "*"], [12: "!*" "a"]]
+[[12: "!*" "a"], [2: "!" "a*"]]
+[[2: "!" "a*"]]
+[[12: "!a" "*"]]
+[[3: "!**" ""]]
+[[4: "!** " ""]]
+[[6: "!**" ""]]
+[[6: "!*" "*"]]
+[[6: "!" "**"]]
+[[7: "!*" "*"]]
+[]
+[]
+[]
+[]
+[]
+[]

@@ -25,7 +25,14 @@ inputstr = 'aabbcc'
 test = configs(tripletm, 35, inputstr)
 print(f"configs(tripletm, 35, '{inputstr}')= ", test)
 
+
+
+inputstr = 'aabbcc'
+acceptTest = accepts(tripletm, inputstr)
+configText = configs(tripletm, 50, inputstr)
+
 with open('tm1.txt', 'wt') as f:
-    f.write(f'TM recognizes {{a^n b^n c^n | n in Nat }}, runs with input string: {inputstr}')
-    f.write(str(test))
+    f.write(f'TM recognizes {{a^n b^n c^n | n in Nat }}, runs with input string: {inputstr}\n')
+    f.write(f'Accepted:'+str(acceptTest))    
+    f.write(f'\nHistory:\n'+str(configText))
 

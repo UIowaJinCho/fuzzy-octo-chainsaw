@@ -57,12 +57,11 @@ hw4 = TM(
     [20]
 )
 
-inputstr = 'aa:aab:bba:aa'
-test = configs(hw4, 50, inputstr)
-
-print("configs(hw4, 50, 'aa:aa')=", test)
+inputstr = 'aa:aaa'
+acceptTest = accepts(hw4, inputstr)
+configText = configs(hw4, 50, inputstr)
 
 with open('tm3.txt', 'wt') as f:
-    f.write(f'TM recognizes language {{ w0:w1:...:wk| wi \in {{0,1}}*, exist wi = w0 }}, runs with input string: {inputstr}')
-    f.write(str(test))
-
+    f.write(f'TM recognizes language {{ w0:w1:...:wk| wi \in {{0,1}}*, exist wi = w0 }}, runs with input string: {inputstr}\n')
+    f.write(f'Accepted:'+str(acceptTest))    
+    f.write(f'\nHistory:\n'+str(configText))
